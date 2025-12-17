@@ -1,5 +1,5 @@
-function HomePage() {
-  return <div>hello next</div>;
+function ProductPage() {
+  return <div>상품 페이지</div>;
 }
 
-export default HomePage;
+export default ProductPage;
