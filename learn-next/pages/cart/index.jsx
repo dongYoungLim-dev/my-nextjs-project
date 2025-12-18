@@ -1,5 +1,12 @@
+import ProductHeader from '@/components/ProductHeader';
+
 function CartPage() {
-  return <div>장바구니 페이지 입니다.</div>;
+  const pageTitle = '장바구니 페이지';
+  return (
+    <div>
+      <ProductHeader title={pageTitle} />
+    </div>
+  );
 }
 
 export default CartPage;
