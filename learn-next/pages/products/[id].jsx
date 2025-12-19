@@ -28,3 +28,9 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+/**
+ * useEffect 와 next js 에서 제공이 되는 getServerSideProps의 차이는 아래와 같다.
+ * useEffect  -> 클라이언트 사이드 랜더링 (브라우저에서 데이터를 api로 데이터를 요청하여 처리)
+ * getServerSideProps -> 서버 사이드 랜더링 (서버에서 데이터를 api로 요청하고, 받은 데이터를 채워서 브라우저로 보낸다.)
+ */
