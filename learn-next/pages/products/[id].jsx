@@ -1,6 +1,6 @@
+import { fatchProductItem } from '@/api';
 import ProductHeader from '@/components/ProductHeader';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import ProductInfo from '@/components/ProductInfo';
 
 export default function ProductDetailPage({ productInfo }) {
   // 아래는 주석 코드는 내가 생각한 코드 이다.
@@ -14,17 +14,17 @@ export default function ProductDetailPage({ productInfo }) {
   return (
     <div>
       <ProductHeader title={pageTitle} />
-      <div>{productInfo.name}</div>
+      <ProductInfo productDetail={productInfo} />
     </div>
   );
 }
-// TODO 내가 작성한 코드와 뭐가 다른지 생각해보기
+
 export async function getServerSideProps(context) {
   let id = context.params.id;
-  const response = await axios.get(`http://localhost:4000/products/${id}`);
+  const { data } = await fatchProductItem(id);
   return {
     props: {
-      productInfo: response.data,
+      productInfo: data,
     },
   };
 }
