@@ -13,4 +13,17 @@ function fatchProductItem(id) {
   return instance.get(`/products/${id}`);
 }
 
-export { fatchProducts, fatchProductItem };
+function createCartItem({ id, name, price, imageUrl }) {
+  return instance.post('/carts', {
+    id: id,
+    name, // 객체 키:value 값이 같으면 축약형으로 작성이 가능하다.
+    price,
+    imageUrl,
+  });
+}
+
+function fatchCarts() {
+  return instance.get('/carts');
+}
+
+export { fatchProducts, fatchProductItem, createCartItem, fatchCarts };

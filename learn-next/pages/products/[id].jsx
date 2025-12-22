@@ -1,6 +1,6 @@
 import { fatchProductItem } from '@/api';
 import ProductHeader from '@/components/ProductHeader';
-import ProductInfo from '@/components/ProductInfo';
+import ProductInfo from '@/components/product-detail/ProductInfo';
 
 export default function ProductDetailPage({ productInfo }) {
   // 아래는 주석 코드는 내가 생각한 코드 이다.
