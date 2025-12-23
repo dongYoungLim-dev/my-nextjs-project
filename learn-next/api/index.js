@@ -26,4 +26,14 @@ function fatchCarts() {
   return instance.get('/carts');
 }
 
-export { fatchProducts, fatchProductItem, createCartItem, fatchCarts };
+function removeCartItem(id) {
+  return instance.delete(`/carts/${id}`);
+}
+
+export {
+  fatchProducts,
+  fatchProductItem,
+  createCartItem,
+  fatchCarts,
+  removeCartItem,
+};
