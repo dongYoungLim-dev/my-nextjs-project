@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styles from './CartList.module.css';
 import { removeCartItem } from '@/api';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 export default function CartList({ cartList }) {
   const router = useRouter();
@@ -12,8 +13,12 @@ export default function CartList({ cartList }) {
 
   const removeCart = async id => {
     // 01. 삭제 API 호출
-    const { data } = await removeCartItem(id);
-    alert(`${data.name}삭제 되었습니다.`);
+    // const { data } = await removeCartItem(id); // 페이지 라우팅 방식 ./api 폴더를 만들어 사용
+    const { data } = await axios.post('http://localhost:3000/api/cart', {
+      // api 라우팅 방식 /pages/api/ 내부에 api 라우팅 파일 생성 이 차이점 기억하기
+      id: id,
+    });
+    alert(data);
     // 02. 상품 목록 갱신
     router.replace(router.asPath);
   };
